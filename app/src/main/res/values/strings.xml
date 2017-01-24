@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tic Tac Toe</string>
+    <string name="player1nameHint">player1 name</string>
+    <string name="player2nameHint">player2 name</string>
+    <string name="action_settings">Settings</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
+    <string name="aboutme">studying Computer Science &amp; Engineering at SKIT ,Jaipur</string>
+    <string name="title_activity_afterstart">Tic Tac Toe</string>
+</resources>
