@@ -836,11 +836,7 @@ public class afterstart extends AppCompatActivity {
             //doreset();
             startActivity(intent);
         }
-        if (id == R.id.about) {
-            Intent i = new Intent(this,about.class);
-            startActivity(i);
-            return true;
-        }
+      
 
         if(id == R.id.daynightmode) {
 
