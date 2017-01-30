@@ -805,7 +805,7 @@ public class afterstart extends AppCompatActivity {
     public void onBackPressed(){
         if(doubleBackToExitPressedOnce){
             super.onBackPressed();
-           // doreset();
+            doreset();
             return;
         }
         this.doubleBackToExitPressedOnce = true;
@@ -833,7 +833,7 @@ public class afterstart extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             intent.putExtra("EXIT", true);
-            //doreset();
+            doreset();
             startActivity(intent);
         }
         if (id == R.id.about) {
