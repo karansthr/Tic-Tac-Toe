@@ -1,274 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:id="@+id/mainlayout"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context="jetray.tictactoe.MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:id="@+id/linearLayout"
-        android:layout_height="match_parent">
+        android:layout_height="150dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Tic Tac Toe"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Player 1 Name ">
+
+
+        <EditText
+            android:id="@+id/playerone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:imeActionLabel="NEXT"
+            android:imeOptions="actionNext"
+            android:inputType="textCapSentences|textPersonName"
+            android:textColorHint="#86CFFF"
+            android:textStyle="bold" />
+
+    </android.support.design.widget.TextInputLayout>
+     
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:weightSum="3">
+
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Tic Tac Toe"
-            android:fontFamily="casual"
-            android:textStyle="bold"
-            android:textSize="70dp"
-            android:id="@+id/textView"
-            android:layout_gravity="center" />
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="player 1 name ">
-
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:inputType="textCapSentences|textPersonName"
-                android:fontFamily="casual"
-                android:imeOptions="actionNext"
-                android:textColor="@android:color/holo_green_dark"
-                android:textColorHint="#86CFFF"
-                android:imeActionLabel="NEXT"
-                android:id="@+id/playerone"
-                />
-
-        </android.support.design.widget.TextInputLayout>
-          
-
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".1"></View>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="0dp">
+            android:gravity="center_vertical"
+            android:text="Player 1  :  "
+            android:textSize="18sp" />
 
+        <CheckBox
+            android:id="@+id/player1x"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical"
+            android:text=" X "
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="player 1  :  "/>
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:id="@+id/player1x"
-                android:text=" X " />
-            <CheckBox
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:id="@+id/player1o"
-                android:layout_weight="1"
-                android:text=" O " />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"></View>
-
-
-
-        </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/holo_green_light"></View>
-
-
-
-<View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".5"></View>
-
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="player 2 name ">
-
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionDone"
-                android:textStyle="bold"
-                android:inputType="textCapSentences|textPersonName"
-                android:fontFamily="casual"
-                android:imeActionLabel="DONE"
-                android:textColor="@android:color/holo_green_dark"
-                android:textColorHint="#86CFFF"
-                android:id="@+id/playertwo"
-                />
-
-        </android.support.design.widget.TextInputLayout>
-          
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".1"></View>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="player 2 :  "/>
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/player2x"
-                android:fontFamily="casual"
-                android:text=" X " />
-            <CheckBox
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:layout_weight="1"
-                android:id="@+id/player2o"
-                android:text=" O " />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"></View>
-
-        </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/holo_green_light"></View>
-
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".5"></View>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".5">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"></View>
-
-            <CheckBox
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:layout_weight="4"
-                android:id="@+id/splayer"
-                android:text="Single player"
-                />
-            <Spinner
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:hint="difficulty"
-                android:id="@+id/difficulty">
-
-            </Spinner>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"></View>
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="casual"
-                android:id="@+id/tplayer"
-                android:text="Two player"
-                android:layout_weight="1"
-                />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="4"></View>
-        </LinearLayout>
-
-
-
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"></View>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:onClick="startgame"
-                android:id="@+id/start"
-                android:text="start"/>
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"></View>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"></View>
+        <CheckBox
+            android:id="@+id/player1o"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical"
+            android:text=" O "
+            android:textStyle="bold" />
 
 
     </LinearLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Player 2 Name ">
+
+
+        <EditText
+            android:id="@+id/playertwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:imeActionLabel="DONE"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences|textPersonName"
+            android:textColorHint="#86CFFF"
+            android:textStyle="bold" />
+
+    </android.support.design.widget.TextInputLayout>
+     
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="Player 2 :  "
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/player2x"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical"
+            android:text=" X "
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/player2o"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:gravity="center_vertical"
+            android:text=" O "
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/splayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:text="Single player" />
+
+            <CheckBox
+                android:id="@+id/tplayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:text="Two player" />
+
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/difficulty"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:hint="difficulty">
+
+        </Spinner>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="40dp"
+        android:background="@drawable/round"
+        android:onClick="startgame"
+        android:text="start"
+        android:textColor="@android:color/white" />
+
+
 </LinearLayout>
 
 

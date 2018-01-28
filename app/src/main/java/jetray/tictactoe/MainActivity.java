@@ -1,8 +1,6 @@
 package jetray.tictactoe;
 
 import android.content.Intent;
-import android.os.Handler;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,18 +12,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
-import android.app.Activity;
-import android.os.Bundle;
+
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,15 +25,15 @@ public class MainActivity extends AppCompatActivity {
     public EditText plyr2;
 
     public Spinner difficulty;
-    public CharSequence player1 = "player 1";
-    public CharSequence player2 = "player 2";
+    public CharSequence player1 = "Player 1";
+    public CharSequence player2 = "Player 2";
 
     public CharSequence cloneplayer2;
     boolean player1ax = true;
     boolean selectedSinglePlayer;
     boolean easy = true;
     boolean medium = false;
-    boolean hard = false ;
+    boolean hard = false;
     boolean impossible = false;
     public CheckBox p1x, p1o, p2x, p2o, singleplayer, twoplayer;
     public boolean bp1x, bp1o, bp2x, bp2o, bsingleplayer, btwoplayer;
@@ -53,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         LinearLayout layout = (LinearLayout) findViewById(R.id.mainlayout);
-        AlphaAnimation animation = new AlphaAnimation(0.0f , 1.0f ) ;
+        AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
         animation.setFillAfter(true);
         animation.setDuration(1200);
 //apply the animation ( fade In ) to your LAyout
@@ -86,11 +78,9 @@ public class MainActivity extends AppCompatActivity {
         difficulty.setEnabled(false);
 
 
-
         p1x.setChecked(true);
         p2o.setChecked(true);
         twoplayer.setChecked(true);
-
 
 
         plyr1.addTextChangedListener(new TextWatcher() {                               /*this code take player1's name characterwise i.e it takes one character at a time and
@@ -131,10 +121,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
-    public void addItemToDifficultySpinner(){
+    public void addItemToDifficultySpinner() {
         difficulty = (Spinner) findViewById(R.id.difficulty);
 
         List<String> list = new ArrayList<String>();
@@ -153,27 +140,27 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String temp = parent.getItemAtPosition(position).toString();
 
-                switch(temp){
+                switch (temp) {
                     case "Easy":
-                        easy =true;
+                        easy = true;
                         medium = false;
                         hard = false;
                         impossible = false;
                         break;
                     case "Medium":
-                        easy =false;
+                        easy = false;
                         medium = true;
                         hard = false;
                         impossible = false;
                         break;
                     case "Hard":
-                        easy =false;
+                        easy = false;
                         medium = false;
                         hard = true;
                         impossible = false;
                         break;
                     case "Impossible":
-                        easy =false;
+                        easy = false;
                         medium = false;
                         hard = false;
                         impossible = true;
@@ -191,8 +178,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
 
     View.OnClickListener checkboxClickListener = new View.OnClickListener() {
@@ -232,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
                         plyr2.setText("CPU");
 
                         plyr1.setImeOptions(EditorInfo.IME_ACTION_DONE);
-                        plyr1.setImeActionLabel("DONE",EditorInfo.IME_ACTION_DONE);
+                        plyr1.setImeActionLabel("DONE", EditorInfo.IME_ACTION_DONE);
 
 
                         difficulty.setEnabled(true);
@@ -242,13 +227,12 @@ public class MainActivity extends AppCompatActivity {
                         selectedSinglePlayer = false;
                         plyr2.setText(cloneplayer2);
                         plyr1.setImeOptions(EditorInfo.IME_ACTION_NEXT);
-                        plyr1.setImeActionLabel("NEXT",EditorInfo.IME_ACTION_NEXT);
+                        plyr1.setImeActionLabel("NEXT", EditorInfo.IME_ACTION_NEXT);
                         difficulty.setEnabled(false);
                         break;
                 }
 
-            } else
-            {
+            } else {
                 switch (view.getId()) {
                     case R.id.player1x:
                         p1o.setChecked(true);
@@ -280,14 +264,14 @@ public class MainActivity extends AppCompatActivity {
                         plyr2.setText(cloneplayer2);
                         difficulty.setEnabled(false);
                         plyr1.setImeOptions(EditorInfo.IME_ACTION_NEXT);
-                        plyr1.setImeActionLabel("NEXT",EditorInfo.IME_ACTION_NEXT);
+                        plyr1.setImeActionLabel("NEXT", EditorInfo.IME_ACTION_NEXT);
                         break;
                     case R.id.tplayer:
                         singleplayer.setChecked(true);
                         selectedSinglePlayer = true;
                         plyr2.setText("CPU");
                         plyr1.setImeOptions(EditorInfo.IME_ACTION_DONE);
-                        plyr1.setImeActionLabel("DONE",EditorInfo.IME_ACTION_DONE);
+                        plyr1.setImeActionLabel("DONE", EditorInfo.IME_ACTION_DONE);
                         difficulty.setEnabled(true);
                         break;
                 }
@@ -300,22 +284,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void startgame(View view) {
 
-        if(!selectedSinglePlayer)
-            if(player2.length()==0)
+        if (!selectedSinglePlayer)
+            if (player2.length() == 0)
                 player2 = "player 2";
-            if(player1.length()==0)
-                player1 = "player 1";
+        if (player1.length() == 0)
+            player1 = "player 1";
 
-            CharSequence[] players = {player1, player2};
-            Intent i = new Intent(this, afterstart.class);
-            i.putExtra("easy",easy);
-            i.putExtra("medium",medium);
-            i.putExtra("hard",hard);
-            i.putExtra("impossible",impossible);
-            i.putExtra("playersnames", players);
-            i.putExtra("player1ax", player1ax);
-            i.putExtra("selectedsingleplayer", selectedSinglePlayer);
-            startActivity(i);
+        CharSequence[] players = {player1, player2};
+        Intent i = new Intent(this, Afterstart.class);
+        i.putExtra("easy", easy);
+        i.putExtra("medium", medium);
+        i.putExtra("hard", hard);
+        i.putExtra("impossible", impossible);
+        i.putExtra("playersnames", players);
+        i.putExtra("player1ax", player1ax);
+        i.putExtra("selectedsingleplayer", selectedSinglePlayer);
+        startActivity(i);
     }
 
 }
