@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -593,7 +594,7 @@ public class Afterstart extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
 
-        titleText.setText(whoWon + " won!");
+        titleText.setText(whoWon);
 //        playerOneScore.setText(whoWon+" Score -> "+scoreWon);
 //        playerTwoScore.setText(whoLose+"Score -> "+scoreLose);
 
@@ -639,28 +640,28 @@ public class Afterstart extends AppCompatActivity {
                     score1++;
                     TextView q1 = (TextView) findViewById(R.id.p1score);
                     q1.setText("" + score1);
-                    showDialog("" + player1, "" + score1, "" + player2, "" + score2);
+                    showDialog("" + player1 + " won!", "" + score1, "" + player2, "" + score2);
 
                 }
                 if ((sum[i] == 3) && (zero == 1)) {
                     score2++;
                     TextView q1 = (TextView) findViewById(R.id.p2score);
                     q1.setText("" + score2);
-                    showDialog("" + player2, "" + score2, "" + player1, "" + score1);
+                    showDialog("" + player2 + " won!", "" + score2, "" + player1, "" + score1);
 
                 }
                 if ((sum[i] == 30) && (ax == 10)) {
                     score1++;
                     TextView q1 = (TextView) findViewById(R.id.p1score);
                     q1.setText("" + score1);
-                    showDialog("" + player1, "" + score1, "" + player2, "" + score2);
+                    showDialog("" + player1 + " won!", "" + score1, "" + player2, "" + score2);
 
                 }
                 if ((sum[i] == 30) && (zero == 10)) {
                     score2++;
                     TextView q1 = (TextView) findViewById(R.id.p2score);
                     q1.setText("" + score2);
-                    showDialog("" + player2, "" + score2, "" + player1, "" + score1);
+                    showDialog("" + player2 + " won!", "" + score2, "" + player1, "" + score1);
 
                 }
 
@@ -731,9 +732,6 @@ public class Afterstart extends AppCompatActivity {
         }
     }
 
-    public void resetbutton(View view) {
-
-    }
 
     public void doreset() {
 
@@ -792,67 +790,77 @@ public class Afterstart extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
 
-    boolean doubleBackToExitPressedOnce = false;
+    private void showExitDialog() {
+        final Dialog dialog = new Dialog(Afterstart.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_layout_exit);
+        dialog.setCancelable(false);
+
+        dialog.show();
+
+        Button exit = dialog.findViewById(R.id.yes_button);
+        final Button dismiss = dialog.findViewById(R.id.no_button);
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
 
     @Override
     public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-
-            finish();
-
-        }
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Press again to quit!", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce = false;
-            }
-        }, 2000);
+        showExitDialog();
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.exit) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra("EXIT", true);
-            doreset();
-            startActivity(intent);
-        }
-
-        if (id == R.id.daynightmode) {
-
-            if (night % 2 == 0) {
-                View view = this.getWindow().getDecorView();
-                view.setBackgroundColor(Color.parseColor("#000000"));
-                item.setTitle("Day Mode");
-            } else {
-                View view = this.getWindow().getDecorView();
-                view.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                item.setTitle("Night Mode");
-            }
-            night++;
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.exit) {
+//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            intent.putExtra("EXIT", true);
+//            doreset();
+//            startActivity(intent);
+//        }
+//
+//        if (id == R.id.daynightmode) {
+//
+//            if (night % 2 == 0) {
+//                View view = this.getWindow().getDecorView();
+//                view.setBackgroundColor(Color.parseColor("#000000"));
+//                item.setTitle("Day Mode");
+//            } else {
+//                View view = this.getWindow().getDecorView();
+//                view.setBackgroundColor(Color.parseColor("#FFFFFF"));
+//                item.setTitle("Night Mode");
+//            }
+//            night++;
+//        }
+//
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 }
 
 

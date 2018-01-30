@@ -14,14 +14,12 @@
         android:layout_margin="4dp">
 
         <TextView
-            android:id="@+id/title_text"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Hello"
+            android:text="Do you want to exit?"
             android:padding="4dp"
             android:gravity="center"
             android:textColor="@android:color/black"
-            android:textStyle="bold"
             android:textSize="22sp"/>
 
         <!--<LinearLayout-->
@@ -67,23 +65,23 @@
             android:weightSum="2">
 
             <Button
-                android:id="@+id/reset_button"
+                android:id="@+id/no_button"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/round"
-                android:text="RESET"
+                android:text="NO"
                 android:textColor="@android:color/white" />
 
             <Button
-                android:id="@+id/play_again_button"
+                android:id="@+id/yes_button"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_margin="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/round"
-                android:text="PLAY AGAIN"
+                android:text="YES"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
