@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     boolean hard = false;
     boolean impossible = false;
     public CheckBox p1x, p1o, p2x, p2o, singleplayer, twoplayer;
-    public boolean bp1x, bp1o, bp2x, bp2o, bsingleplayer, btwoplayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LinearLayout layout = (LinearLayout) findViewById(R.id.mainlayout);
-        AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
-        animation.setFillAfter(true);
-        animation.setDuration(1200);
+
 //apply the animation ( fade In ) to your LAyout
-        layout.startAnimation(animation);
 
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
