@@ -1,154 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context="jetray.tictactoe.MainActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/playerone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="24dp"
+        android:hint="@string/edit_name_player_one"
+        android:imeActionLabel="NEXT"
+        android:imeOptions="actionNext"
+        android:inputType="textCapSentences|textPersonName"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="16dp"
+        android:importantForAutofill="no" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:fontFamily="casual"
-            android:gravity="center"
-            android:text="Tic Tac Toe"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="50dp"
-            android:textStyle="bold" />
+    <CheckBox
+        android:id="@+id/player1x"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="casual"
+        android:gravity="center_vertical"
+        android:text="@string/type_x"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/player1o"
+        app:layout_constraintTop_toBottomOf="@+id/playerone" />
 
+    <CheckBox
+        android:id="@+id/player1o"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="casual"
+        android:gravity="center_vertical"
+        android:text="@string/type_o"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/playerone" />
 
-        <EditText
-            android:id="@+id/playerone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Player 1 name"
-            android:imeActionLabel="NEXT"
-            android:imeOptions="actionNext"
-            android:inputType="textCapSentences|textPersonName"
-            android:textColor="@android:color/black" />
-         
+    <EditText
+        android:id="@+id/playertwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_name_player_two"
+        android:imeActionLabel="DONE"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="textCapSentences|textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/player1x"
+        tools:layout_editor_absoluteX="16dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="2dp"
-            android:weightSum="3">
+    <CheckBox
+        android:id="@+id/player2x"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="casual"
+        android:gravity="center_vertical"
+        android:text="@string/type_x"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/player2o"
+        app:layout_constraintTop_toBottomOf="@+id/playertwo" />
 
+    <CheckBox
+        android:id="@+id/player2o"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="casual"
+        android:gravity="center_vertical"
+        android:text="@string/type_o"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/playertwo" />
 
-            <CheckBox
-                android:id="@+id/player1x"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:gravity="center_vertical"
-                android:text=" X "
-                android:textStyle="bold" />
+    <CheckBox
+        android:id="@+id/splayer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="casual"
+        android:text="@string/mode_single_player"
+        app:layout_constraintEnd_toStartOf="@+id/player2x"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player2x" />
 
-            <CheckBox
-                android:id="@+id/player1o"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:gravity="center_vertical"
-                android:text=" O "
-                android:textStyle="bold" />
+    <CheckBox
+        android:id="@+id/tplayer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/mode_two_player"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splayer" />
 
-
-        </LinearLayout>
-
-
-        <EditText
-            android:id="@+id/playertwo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="Player 2 Name"
-            android:imeActionLabel="DONE"
-            android:imeOptions="actionDone"
-            android:inputType="textCapSentences|textPersonName" />
-         
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:weightSum="3">
-
-
-            <CheckBox
-                android:id="@+id/player2x"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:gravity="center_vertical"
-                android:text=" X "
-                android:textStyle="bold" />
-
-            <CheckBox
-                android:id="@+id/player2o"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:fontFamily="casual"
-                android:gravity="center_vertical"
-                android:text=" O "
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <CheckBox
-                    android:id="@+id/splayer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="casual"
-                    android:text="Single player" />
-
-                <CheckBox
-                    android:id="@+id/tplayer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="casual"
-                    android:text="Two player" />
-
-            </LinearLayout>
-
-            <Spinner
-                android:id="@+id/difficulty"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:hint="difficulty">
-
-            </Spinner>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    <Spinner
+        android:id="@+id/difficulty"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:hint="@string/mode_difficulty"
+        app:layout_constraintBottom_toTopOf="@+id/tplayer"
+        app:layout_constraintEnd_toEndOf="@+id/playertwo"
+        app:layout_constraintStart_toEndOf="@+id/splayer"
+        app:layout_constraintTop_toTopOf="@+id/splayer" />
 
     <Button
         android:id="@+id/start"
@@ -158,11 +136,20 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/round"
         android:onClick="startgame"
-        android:layout_marginBottom="15dp"
-        android:text="start"
-        android:textColor="@android:color/white" />
+        android:text="@string/button_start"
+        android:textColor="@android:color/white"
+        android:windowSoftInputMode="adjustResize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
 
 
