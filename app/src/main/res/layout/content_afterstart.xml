@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,253 +11,263 @@
     tools:context="jetray.tictactoe.Afterstart"
     tools:showIn="@layout/activity_afterstart">
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_v_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.34" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        android:layout_weight=".6"
-        android:gravity="center"
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_v_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guide_h_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2.1">
+        app:layout_constraintGuide_percent="0.5" />
 
-        <TextView
-            android:id="@+id/playerone"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="casual"
-            android:gravity="center"
-            android:text="player 1"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@android:color/holo_green_dark" />
-
-        `
-
-        <TextView
-            android:id="@+id/playertwo"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="casual"
-            android:gravity="center"
-            android:text="player 2"
-            android:textAlignment="center"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <TextView
+        android:id="@+id/playerone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
+        android:fontFamily="casual"
         android:gravity="center"
-        android:weightSum="2.1">
+        android:text="@string/name_player_1"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/playertwo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/p1score"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="casual"
-            android:gravity="center"
-            android:text="0"
-            android:textSize="55sp" />
-
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@android:color/holo_green_dark" />
-
-        <TextView
-            android:id="@+id/p2score"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="casual"
-            android:gravity="center"
-            android:text="0"
-            android:textSize="55sp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
+    <TextView
+        android:id="@+id/p1score"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/tzz"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="kzz" />
-
-        <View
-            android:layout_width="@dimen/line_thickness"
-            android:layout_height="match_parent"
-            android:background="@color/lineColor"></View>
-
-        <ImageView
-            android:id="@+id/tzo"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="kzo" />
-
-        <View
-            android:layout_width="@dimen/line_thickness"
-            android:layout_height="match_parent"
-            android:background="@color/lineColor"></View>
-
-        <ImageView
-            android:id="@+id/tzt"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="kzt" />
-
-
-    </LinearLayout>
-
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/score_player_1"
+        android:textSize="55sp"
+        app:layout_constraintEnd_toStartOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerone" />
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_thickness"
-        android:background="@color/lineColor"></View>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/view4"
+        android:layout_width="1dp"
         android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/p1score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/playertwo"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/name_player_2"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/p1score"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/toz"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="koz" />
-
-        <View
-            android:layout_width="@dimen/line_thickness"
-            android:layout_height="match_parent"
-            android:background="@color/lineColor"></View>
-
-        <ImageView
-            android:id="@+id/too"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="koo" />
-
-        <View
-            android:layout_width="@dimen/line_thickness"
-            android:layout_height="match_parent"
-            android:background="@color/lineColor"></View>
-
-        <ImageView
-            android:id="@+id/tot"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="kot" />
-
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/p2score"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/score_player_2"
+        android:textSize="55sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/p1score"
+        app:layout_constraintTop_toBottomOf="@+id/playertwo" />
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/line_thickness"
-        android:background="@color/lineColor"></View>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/line_1"
+        android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_gravity="center"
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/tto"
+        app:layout_constraintEnd_toStartOf="@+id/guide_v_2"
+        app:layout_constraintStart_toStartOf="@+id/guide_v_2"
+        app:layout_constraintTop_toTopOf="@+id/tzo" />
 
-        <ImageView
-            android:id="@+id/ttz"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="ktz" />
-
-        <View
-            android:layout_width="@dimen/line_thickness"
-            android:layout_height="match_parent"
-            android:background="@color/lineColor"></View>
-
-        <ImageView
-            android:id="@+id/tto"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="kto" />
-
-        <View
-            android:layout_width="@dimen/line_thickness"
-            android:layout_height="match_parent"
-            android:background="@color/lineColor"></View>
-
-        <ImageView
-            android:id="@+id/ttt"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="ktt" />
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+    <View
+        android:id="@+id/line_2"
+        android:layout_width="1dp"
         android:layout_height="0dp"
-        android:layout_weight=".8"
-        android:gravity="center"
-        android:weightSum="3">
+        android:layout_gravity="center"
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/tto"
+        app:layout_constraintEnd_toStartOf="@+id/guide_v_3"
+        app:layout_constraintStart_toStartOf="@+id/guide_v_3"
+        app:layout_constraintTop_toTopOf="@+id/tzo" />
 
+    <View
+        android:id="@+id/line_3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/too"
+        app:layout_constraintEnd_toEndOf="@+id/tot"
+        app:layout_constraintStart_toStartOf="@+id/toz"
+        app:layout_constraintTop_toBottomOf="@+id/too" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="monospace"
-            android:text="Game #"
-            android:textColor="@android:color/holo_green_dark" />
+    <View
+        android:id="@+id/line_4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toTopOf="@+id/guide_h_2"
+        app:layout_constraintEnd_toEndOf="@+id/tot"
+        app:layout_constraintStart_toStartOf="@+id/toz"
+        app:layout_constraintTop_toTopOf="@+id/guide_h_2" />
 
+    <ImageView
+        android:id="@+id/tzz"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="kzz"
+        app:layout_constraintBottom_toTopOf="@+id/guide_h_2"
+        app:layout_constraintEnd_toStartOf="@+id/guide_v_2"
+        app:layout_constraintStart_toStartOf="@+id/toz"
+        app:layout_constraintTop_toTopOf="@+id/tzo"
+        tools:ignore="ContentDescription" />
 
-        <TextView
-            android:id="@+id/gamenumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="1"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="25sp" />
+    <ImageView
+        android:id="@+id/tzo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="kzo"
+        app:layout_constraintBottom_toTopOf="@+id/guide_h_2"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guide_v_3"
+        app:layout_constraintStart_toStartOf="@+id/guide_v_2"
+        tools:ignore="ContentDescription" />
 
+    <ImageView
+        android:id="@+id/tzt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="kzt"
+        app:layout_constraintBottom_toTopOf="@+id/guide_h_2"
+        app:layout_constraintEnd_toEndOf="@+id/tot"
+        app:layout_constraintStart_toEndOf="@+id/tzo"
+        app:layout_constraintTop_toTopOf="@+id/tzo"
+        tools:ignore="ContentDescription" />
 
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/toz"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="koz"
+        app:layout_constraintBottom_toTopOf="@+id/tto"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guide_v_2"
+        app:layout_constraintTop_toBottomOf="@+id/tzz"
+        tools:ignore="ContentDescription" />
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/too"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="koo"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guide_v_3"
+        app:layout_constraintStart_toStartOf="@+id/guide_v_2"
+        app:layout_constraintTop_toBottomOf="@+id/tzo"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/tot"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="kot"
+        app:layout_constraintBottom_toTopOf="@+id/line_3"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintStart_toEndOf="@+id/too"
+        app:layout_constraintTop_toTopOf="@+id/guide_h_2"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ttz"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="ktz"
+        app:layout_constraintBottom_toBottomOf="@+id/tto"
+        app:layout_constraintEnd_toStartOf="@+id/guide_v_2"
+        app:layout_constraintStart_toStartOf="@+id/toz"
+        app:layout_constraintTop_toBottomOf="@+id/toz"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/tto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="kto"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guide_v_3"
+        app:layout_constraintStart_toEndOf="@+id/toz"
+        app:layout_constraintTop_toBottomOf="@+id/line_3"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ttt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:onClick="ktt"
+        app:layout_constraintBottom_toBottomOf="@+id/tto"
+        app:layout_constraintEnd_toEndOf="@+id/tot"
+        app:layout_constraintStart_toEndOf="@+id/tto"
+        app:layout_constraintTop_toBottomOf="@+id/tot"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="monospace"
+        android:text="@string/round"
+        android:textColor="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gamenumber" />
+
+    <TextView
+        android:id="@+id/gamenumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        tools:text="1" />
+</android.support.constraint.ConstraintLayout>

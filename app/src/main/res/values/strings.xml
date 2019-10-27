@@ -7,4 +7,18 @@
     <string name="exit">Exit</string>
     <string name="aboutme">studying Computer Science &amp; Engineering at SKIT ,Jaipur</string>
     <string name="title_activity_afterstart">Tic Tac Toe</string>
+    <string name="title">Tic Tac Toe</string>
+    <string name="edit_name_player_one">Player 1 name</string>
+    <string name="edit_name_player_two">Player 2 Name</string>
+    <string name="mode_single_player">Single player</string>
+    <string name="mode_two_player">Two player</string>
+    <string name="mode_difficulty">difficulty</string>
+    <string name="button_start">start</string>
+    <string name="type_x">X</string>
+    <string name="type_o">O</string>
+    <string name="round">Game #</string>
+    <string name="name_player_1">player 1</string>
+    <string name="name_player_2">player 2</string>
+    <string name="score_player_2">0</string>
+    <string name="score_player_1">0</string>
 </resources>
