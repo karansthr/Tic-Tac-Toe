@@ -6,6 +6,7 @@ public class MyClass {
     public void myMethod() {
         Log.i(TAG, "This is a log message");
         Log.i(TAG, "This is a sec log message");
+         Log.i(TAG, "This is a sec log message");
     }
     
     
